@@ -1,11 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FormValidation</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <form>
+      <!-- Username -->
+      <label for="uName">UserName</label>
+      <input type="text" name="uName" id="uName" />
+      <br /><br />
+      <!-- Email -->
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email" />
+      <br /><br />
+      <!-- Password -->
+      <label for="password">Password</label>
+      <input type="password" name="passwor" id="password" />
+      <br /><br />
+      <!-- Submit -->
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      let name = document.getElementById("uName");
+      let pass = document.getElementById("password");
+      let sub = document.querySelector("form");
+      // Key Handling for username  
+      name.addEventListener("keypress", (e) => {
+        const pattern = /^[a-zA-Z]+$/;
+        if (!pattern.test(e.key)) {
+          e.preventDefault();
+        }
+      });
+
+      // Form Validation   
+      sub.addEventListener("submit", (e) => {
+        // prevent value erase
+        e.preventDefault();
+        const un = document.getElementById("uName").value.trim();
+        // Name Validation
+        if (un === "") {
+          alert("User Name cannot be Empty");
+        } else if (un.length < 3) {
+          alert("Warning : username should be more than 2 characters");
+        } 
+
+        // Email Check 
+        else if (checkEmail()) {
+          alert("Please Enter a valid email Address..");
+        }
+
+        // Password Validation 
+        else if (pass.value.trim() === "") {
+          alert("Password must be Filled");
+        } else if (pass.value.trim().length < 6) {
+          alert("Password must be more than 6 characters...");
+        }
+        
+        // submit form 
+        else {
+          alert("Form Submited Successfully....");
+        }
+      });
+
+    //   Email Validation
+      function checkEmail() {
+        let Email = document.getElementById("email").value.trim();
+        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z.-]+\.[a-zA-Z]{2,}$/;
+        if (!regex.test(Email)) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+    </script>
+  </body>
 </html>
