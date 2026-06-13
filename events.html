@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <style>
+      #myDiv {
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mouse Events</h1>
+    <br />
+    <div id="myDiv"></div>
+    <br />
+    <label for="text">Text</label>
+    <input type="text" name="text" id="text" />
+    <br />
+    <br />
+    <form>
+      <label for="name">Enter name:</label>
+      <input type="text" name="name" id="name" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      let box = document.getElementById("myDiv");
+      box.addEventListener("click", () => {
+        box.style.backgroundColor = "red";
+      });
+
+      box.addEventListener("dblclick", () => {
+        box.style.backgroundColor = "yellow";
+        box.innerText = "User Clicked";
+      });
+
+      box.addEventListener("mouseover", () => {
+        box.style.backgroundColor = "blue";
+        box.innerText = "";
+      });
+
+      box.addEventListener("mouseout", () => {
+        box.style.backgroundColor = "aqua";
+        box.innerText = "";
+      });
+
+      box.addEventListener("mousemove", (e) => {
+        box.innerText = `X value ${e.x} and Y value: ${e.y}`;
+      });
+
+      let i = document.querySelector("input");
+      // i.addEventListener("keydown", () => {
+      //     alert("Key Down");
+      // })
+
+      i.addEventListener("keypress", (e) => {
+        const pattern = /^[a-zA-Z]$/;
+        if (!pattern.test(event.key)) {
+          event.preventDefault();
+        }
+      });
+      //   form Events
+      let form = document.querySelector("form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Form Submitted Successfully");
+      });
+      // document.querySelector("#name").addEventListener("focus", () => {
+      //     alert("input field foucsed")
+      // } )
+
+      // document.querySelector("#name").addEventListener("blur", () => {
+      //     alert("input field not focuse")
+      // } )
+
+      document.querySelector("#name").addEventListener("change", (e) => {
+        console.log(e.target.value);
+      });
+
+      document.querySelector("#name").addEventListener("input", (e) => {
+        console.log(`The input is ${e.target.value}`);
+      });
+    </script>
+  </body>
+</html>

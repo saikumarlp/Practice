@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts</title>
+</head>
+<body>
+    <button onclick="askName()">Click me</button>
+    <p id="output"></p>
+    <p id="sum1"></p>
+    <script>
+        function askName() {
+        const name = prompt("Enter Your Name: ")
+        console.log(name)
+        const outputName = document.getElementById("output");
+        if(name) {
+            const confirmation = confirm("Do You want to continue");
+            
+            outputName.innerHTML = `The User Selected : ${confirmation ? "Ok" : "Cancel"}`;
+        }
+
+        const num1 = Number(prompt("Enter the First number:"))
+        const num2 = Number(prompt("Enter the Second number:"))
+        const ans = document.getElementById("sum1")
+        ans.innerHTML = num1 + num2;
+    }
+    </script>
+</body>
+</html>

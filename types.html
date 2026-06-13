@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of adding JS</title>
+        <script defer>
+            // defer - make script wait body is loaded
+        document.writeln("Welcome to Js")
+        console.log("Thank You")
+
+        function message() {
+            alert("Function")
+        }
+    </script>
+</head>
+<body>
+    <h1>Type of Adding JS</h1>
+    <button onclick="message()">Click Me</button>
+
+    <button onclick="call()"> External </button>
+    <!-- best Way -->
+     <script>
+        Window.writeln("Write Last")
+     </script>
+     <!-- External JS -->
+     <script src="types.js"></script>
+</body>
+
+</html>

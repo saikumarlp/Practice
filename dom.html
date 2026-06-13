@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h1>DOM Methods</h1>
+    <p>getElementsbytagsname</p>
+    <p id="paraid">
+        getElementById
+    </p>
+    <p class="bluetext">getelementbyClassName</p>
+    <p>getElementByname</p>
+    <h4>Hello</h4>
+    <h4>Thank You</h4>
+    <input type="text" value=" " placeholder="Enter hero name" name="name">
+    <p id="name"></p>
+    <button onclick="change()">Click Me</button>
+    <script>
+        function change( ) {
+        // visible content innerText - only Text
+        document.querySelector("h1").innerHTML = "<h3><i>DOM methods in JavaScript</i></h3>";
+        // visible aswell as invisible content
+        document.querySelector("button").textContent = "Clicked";
+        document.getElementsByTagName("p")[0].style.color = "green";
+        document.getElementById("paraid").style.fontSize = "50px";
+
+        let bt = document.getElementsByClassName("bluetext");
+        for(let i = 0 ; i < bt.length; i++) {
+            bt[i].style.color = "blue";
+            bt[i].style.backgroundColor = "green";
+        }
+
+       let p = document.querySelectorAll("h4");
+       p.forEach(para => 
+        {
+            para.style.backgroundColor = "black";
+            para.style.color = "white"
+        }
+       );
+       let name = document.getElementsByName("name")[0].value;
+       document.getElementById("name").innerText = name;       } 
+   </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Pin</title>
+</head>
+<body>
+    <h1>Password Checker</h1>
+    <label for="pass">Password</label>
+    <input type="password" name="pass" id="pass">
+    <br><br>
+    <button type="submit" onclick="call()">Click Me</button>
+    <script>
+        function call() {
+            const v = document.getElementById('pass')
+            if(v.value == 1234) {
+                alert("Password is Correct")
+            }
+            else {
+                alert("Password is Incorrect")
+                v.value = ""
+            }
+            while(true) {
+            const p = prompt("Enter the Password")
+            if(p == 1234) {
+                break
+            }
+        }
+    }
+    </script>
+</body>
+</html>
